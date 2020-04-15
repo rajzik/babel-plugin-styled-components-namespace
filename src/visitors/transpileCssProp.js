@@ -1,17 +1,19 @@
+/* eslint-disable no-param-reassign */
 // Most of this code was taken from @satya164's babel-plugin-css-prop
 // @see https://github.com/satya164/babel-plugin-css-prop
+import Path from 'path'
 import { addDefault } from '@babel/helper-module-imports'
 import { importLocalName } from '../utils/detectors'
 import { useCssProp } from '../utils/options'
 
-const TAG_NAME_REGEXP = /^[a-z][a-z\d]*(\-[a-z][a-z\d]*)?$/
+const TAG_NAME_REGEXP = /^[a-z][a-z\d]*(-[a-z][a-z\d]*)?$/
 
 const getName = (node, t) => {
   if (typeof node.name === 'string') return node.name
   if (t.isJSXMemberExpression(node)) {
     return `${getName(node.object, t)}.${node.property.name}`
   }
-  throw path.buildCodeFrameError(
+  throw Path.buildCodeFrameError(
     `Cannot infer name from node with type "${node.type}". Please submit an issue at github.com/styled-components/babel-plugin-styled-components with your code so we can take a look at your use case!`
   )
 }
@@ -42,7 +44,7 @@ export default t => (path, state) => {
   const elem = path.parentPath
   const name = getName(elem.node.name, t)
   const id = path.scope.generateUidIdentifier(
-    'Styled' + name.replace(/^([a-z])/, (match, p1) => p1.toUpperCase())
+    `Styled${name.replace(/^([a-z])/, (_match, p1) => p1.toUpperCase())}`
   )
 
   let styled
@@ -121,7 +123,7 @@ export default t => (path, state) => {
       if (t.isObjectExpression(property.value)) {
         // recurse for objects within objects (e.g. {'::before': { content: x }})
         property.value.properties = property.value.properties.reduce(
-          propertiesReducer,
+          (a, b) => propertiesReducer(a, b),
           []
         )
 
@@ -140,16 +142,18 @@ export default t => (path, state) => {
       ) {
         replaceObjectWithPropFunction = true
 
-        const name = path.scope.generateUidIdentifier('css')
+        const internalName = path.scope.generateUidIdentifier('css')
 
         elem.node.attributes.push(
           t.jSXAttribute(
-            t.jSXIdentifier(name.name),
+            t.jSXIdentifier(internalName.name),
             t.jSXExpressionContainer(property.value)
           )
         )
 
-        acc.push(t.objectProperty(property.key, t.memberExpression(p, name)))
+        acc.push(
+          t.objectProperty(property.key, t.memberExpression(p, internalName))
+        )
       } else {
         // some sort of primitive which is safe to pass through as-is
         acc.push(property)
@@ -174,17 +178,19 @@ export default t => (path, state) => {
       ) {
         acc.push(ex)
       } else {
-        const name = path.scope.generateUidIdentifier('css')
+        const internalName = path.scope.generateUidIdentifier('css')
         const p = t.identifier('p')
 
         elem.node.attributes.push(
           t.jSXAttribute(
-            t.jSXIdentifier(name.name),
+            t.jSXIdentifier(internalName.name),
             t.jSXExpressionContainer(ex)
           )
         )
 
-        acc.push(t.arrowFunctionExpression([p], t.memberExpression(p, name)))
+        acc.push(
+          t.arrowFunctionExpression([p], t.memberExpression(p, internalName))
+        )
       }
 
       return acc

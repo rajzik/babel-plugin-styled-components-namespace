@@ -1,4 +1,4 @@
-export default function getNamespace(namespace, str) {
+export default function getNamespace(namespace) {
   if (namespace) {
     return `${namespace}__`
   }

@@ -1,4 +1,4 @@
-import path from 'path'
+import pathModule from 'path'
 import fs from 'fs'
 import {
   useFileName,
@@ -36,6 +36,7 @@ const addConfig = t => (path, displayName, componentId) => {
 
   if (path.node.tag) {
     // Replace x`...` with x.withConfig({ })`...`
+    // eslint-disable-next-line no-param-reassign
     path.node.tag = t.callExpression(
       t.memberExpression(path.node.tag, t.identifier('withConfig')),
       [t.objectExpression(withConfigProps)]
@@ -54,13 +55,13 @@ const addConfig = t => (path, displayName, componentId) => {
 }
 
 const getBlockName = file => {
-  const name = path.basename(
+  const name = pathModule.basename(
     file.opts.filename,
-    path.extname(file.opts.filename)
+    pathModule.extname(file.opts.filename)
   )
-  return name !== 'index'
-    ? name
-    : path.basename(path.dirname(file.opts.filename))
+  return name === 'index'
+    ? pathModule.basename(pathModule.dirname(file.opts.filename))
+    : name
 }
 
 const getDisplayName = t => (path, state) => {
@@ -72,28 +73,27 @@ const getDisplayName = t => (path, state) => {
       return componentName
     }
     return componentName ? `${blockName}__${componentName}` : blockName
-  } else {
-    return componentName
   }
+  return componentName
 }
 
 const findModuleRoot = filename => {
   if (!filename) {
     return null
   }
-  let dir = path.dirname(filename)
-  if (fs.existsSync(path.join(dir, 'package.json'))) {
+  const dir = pathModule.dirname(filename)
+  if (fs.existsSync(pathModule.join(dir, 'package.json'))) {
     return dir
-  } else if (dir !== filename) {
-    return findModuleRoot(dir)
-  } else {
-    return null
   }
+  if (dir !== filename) {
+    return findModuleRoot(dir)
+  }
+  return null
 }
 
 const FILE_HASH = 'styled-components-file-hash'
 const COMPONENT_POSITION = 'styled-components-component-position'
-const separatorRegExp = new RegExp(`\\${path.sep}`, 'g')
+const separatorRegExp = new RegExp(`\\${pathModule.sep}`, 'g')
 
 const getFileHash = state => {
   const { file } = state
@@ -101,16 +101,17 @@ const getFileHash = state => {
   if (file.get(FILE_HASH)) {
     return file.get(FILE_HASH)
   }
-  const filename = file.opts.filename
+  const { filename } = file.opts
   // find module root directory
   const moduleRoot = findModuleRoot(filename)
   const filePath =
     moduleRoot &&
-    path.relative(moduleRoot, filename).replace(separatorRegExp, '/')
+    pathModule.relative(moduleRoot, filename).replace(separatorRegExp, '/')
   const moduleName =
     moduleRoot &&
-    JSON.parse(fs.readFileSync(path.join(moduleRoot, 'package.json'))).name
-  const code = file.code
+    JSON.parse(fs.readFileSync(pathModule.join(moduleRoot, 'package.json')))
+      .name
+  const { code } = file
 
   const stuffToHash = [moduleName]
 

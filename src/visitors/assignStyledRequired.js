@@ -10,6 +10,7 @@ export default t => (path, state) => {
     t.isLiteral(path.node.init.arguments[0]) &&
     isValidTopLevelImport(path.node.init.arguments[0].value)
   ) {
+    // eslint-disable-next-line no-param-reassign
     state.styledRequired = path.node.id.name
   }
 }

@@ -15,7 +15,7 @@ const injectUniquePlaceholders = strArr => {
 }
 
 const makeMultilineCommentRegex = newlinePattern =>
-  new RegExp('\\/\\*[^!](.|' + newlinePattern + ')*?\\*\\/', 'g')
+  new RegExp(`\\/\\*[^!](.|${newlinePattern})*?\\*\\/`, 'g')
 const lineCommentStart = /\/\//g
 const symbolRegex = /(\s*[;:{},]\s*)/g
 
@@ -24,14 +24,14 @@ const countOccurences = (str, substr) => str.split(substr).length - 1
 
 // Joins substrings until predicate returns true
 const reduceSubstr = (substrs, join, predicate) => {
-  const length = substrs.length
+  const { length } = substrs
   let res = substrs[0]
 
   if (length === 1) {
     return res
   }
 
-  for (let i = 1; i < length; i++) {
+  for (let i = 1; i < length; i += 1) {
     if (predicate(res)) {
       break
     }
@@ -78,7 +78,7 @@ const isLineComment = line => line.trim().startsWith('//')
 
 // Creates a minifier with a certain linebreak pattern
 const minify = linebreakPattern => {
-  const linebreakRegex = new RegExp(linebreakPattern + '\\s*', 'g')
+  const linebreakRegex = new RegExp(`${linebreakPattern}\\s*`, 'g')
   const multilineCommentRegex = makeMultilineCommentRegex(linebreakPattern)
 
   return code => {
@@ -86,7 +86,7 @@ const minify = linebreakPattern => {
       .replace(multilineCommentRegex, '\n') // Remove multiline comments
       .split(linebreakRegex) // Split at newlines
       .filter(line => line.length > 0 && !isLineComment(line)) // Removes lines containing only line comments
-      .map(stripLineComment) // Remove line comments inside text
+      .map(x => stripLineComment(x)) // Remove line comments inside text
       .join(' ') // Rejoin all lines
 
     const eliminatedExpressionIndices = difference(

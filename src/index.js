@@ -13,11 +13,11 @@ export default function({ types: t }) {
       Program(path, state) {
         path.traverse(
           {
-            JSXAttribute(path, state) {
-              transpileCssProp(t)(path, state)
+            JSXAttribute(nestedPath, nestedState) {
+              transpileCssProp(t)(nestedPath, nestedState)
             },
-            VariableDeclarator(path, state) {
-              assignStyledRequired(t)(path, state)
+            VariableDeclarator(nestedPath, nestedState) {
+              assignStyledRequired(t)(nestedPath, nestedState)
             },
           },
           state
