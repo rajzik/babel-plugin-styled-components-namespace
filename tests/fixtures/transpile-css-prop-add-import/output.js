@@ -34,9 +34,7 @@ var _default = function _default() {
     <_Card.default>
       <h1>Login or Sign Up</h1>
       <p>
-        <a href={_config["default"].API_URI + '/auth/google'}>
-          Sign up or login with Google
-        </a>
+        <a href={_config["default"].API_URI + '/auth/google'}>Sign up or login with Google</a>
       </p>
     </_Card.default>
   </_StyledDiv>;

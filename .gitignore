@@ -30,7 +30,7 @@ tmp/
 *.map
 
 # Configs (provided by Lumos)
-.babelrc
+/.babelrc
 /.eslintignore
 .eslintrc.js
 .flowconfig

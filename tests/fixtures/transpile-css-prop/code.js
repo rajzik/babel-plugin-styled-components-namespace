@@ -2,7 +2,7 @@
  * Basic fixtures
  */
 
-const StaticString = p => <p css="flex: 1;">A</p>
+const StaticString = p => <p css="flex: 1;">A</p>;
 
 const StaticTemplate = p => (
   <p
@@ -12,11 +12,11 @@ const StaticTemplate = p => (
   >
     A
   </p>
-)
+);
 
-const ObjectProp = p => <p css={{ color: 'blue' }}>A</p>
+const ObjectProp = p => <p css={{ color: 'blue' }}>A</p>;
 
-const NoChildren = p => <p css="flex: 1;" />
+const NoChildren = p => <p css="flex: 1;" />;
 
 const CssHelperProp = p => (
   <p
@@ -26,15 +26,15 @@ const CssHelperProp = p => (
   >
     A
   </p>
-)
+);
 
 /*
  * Dynamic prop
  */
 
-const CustomComp = p => <Paragraph css="flex: 1">H</Paragraph>
+const CustomComp = p => <Paragraph css="flex: 1">H</Paragraph>;
 
-const DynamicProp = p => <p css={props.cssText}>H</p>
+const DynamicProp = p => <p css={props.cssText}>H</p>;
 
 const LocalInterpolation = p => (
   <p
@@ -44,7 +44,7 @@ const LocalInterpolation = p => (
   >
     H
   </p>
-)
+);
 
 const FuncInterpolation = p => (
   <p
@@ -54,9 +54,9 @@ const FuncInterpolation = p => (
   >
     H
   </p>
-)
+);
 
-const radius = 10
+const radius = 10;
 const GlobalInterpolation = p => (
   <p
     css={`
@@ -65,7 +65,7 @@ const GlobalInterpolation = p => (
   >
     H
   </p>
-)
+);
 
 const LocalCssHelperProp = p => (
   <p
@@ -75,7 +75,7 @@ const LocalCssHelperProp = p => (
   >
     A
   </p>
-)
+);
 
 const DynamicCssHelperProp = p => (
   <p
@@ -85,24 +85,20 @@ const DynamicCssHelperProp = p => (
   >
     A
   </p>
-)
+);
 
-const CustomCompWithDot = p => <Button.Ghost css="flex: 1">H</Button.Ghost>
+const CustomCompWithDot = p => <Button.Ghost css="flex: 1">H</Button.Ghost>;
 
-const NestedCompWithDot = p => (
-  <Button.Ghost.New css="flex: 1">H</Button.Ghost.New>
-)
+const NestedCompWithDot = p => <Button.Ghost.New css="flex: 1">H</Button.Ghost.New>;
 
-const CustomCompWithDotLowerCase = p => (
-  <button.ghost css="flex: 1">H</button.ghost>
-)
+const CustomCompWithDotLowerCase = p => <button.ghost css="flex: 1">H</button.ghost>;
 
-const CustomElement = p => <button-ghost css="flex: 1">H</button-ghost>
+const CustomElement = p => <button-ghost css="flex: 1">H</button-ghost>;
 
 /* styled component defined after function it's used in */
 
-const EarlyUsageComponent = p => <Thing3 css="color: red;" />
+const EarlyUsageComponent = p => <Thing3 css="color: red;" />;
 
 const Thing3 = styled.div`
   color: blue;
-`
+`;
