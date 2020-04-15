@@ -11,6 +11,8 @@ export const useMinify = state => getOption(state, 'minify')
 export const useTranspileTemplateLiterals = state =>
   getOption(state, 'transpileTemplateLiterals')
 
+export const useNamespace = state => getOption(state, 'namespace', '')
+
 export const usePureAnnotation = state => getOption(state, 'pure', false)
 
 export const useCssProp = state => getOption(state, 'cssProp', true)
