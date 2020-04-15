@@ -71,6 +71,7 @@
     "build": "lumos babel",
     "jest": "cross-env NODE_ENV=test TZ=UTC lumos jest",
     "jest:coverage": "yarn run jest -- --coverage",
+    "pretest": "yarn run build",
     "test": "yarn run jest",
     "test:watch": "yarn run test -- --watch",
     "release": "semantic-release"
