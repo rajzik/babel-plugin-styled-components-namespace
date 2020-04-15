@@ -1,4 +1,4 @@
-# `babel-plugin-styled-components`
+# `@rajzik/babel-plugin-styled-components`
 
 This plugin is a highly recommended supplement to the base styled-components library, offering some
 useful features:
@@ -13,14 +13,14 @@ useful features:
 Install the plugin first:
 
 ```
-npm install --save-dev babel-plugin-styled-components
+npm install --save-dev @rajzik/babel-plugin-styled-components
 ```
 
 Then add it to your babel configuration:
 
 ```JSON
 {
-  "plugins": ["babel-plugin-styled-components"]
+  "plugins": ["@rajzik/babel-plugin-styled-components"]
 }
 ```
 
@@ -32,6 +32,21 @@ Then add it to your babel configuration:
 - [Usage](https://www.styled-components.com/docs/tooling#usage)
 - [Better debugging](https://www.styled-components.com/docs/tooling#better-debugging)
 - [Minification](https://www.styled-components.com/docs/tooling#minification)
+
+## Extended usage
+
+```json
+{
+  "plugins": [
+    [
+      "babel-plugin-styled-components",
+      {
+        "namespace": "your-namespace"
+      }
+    ]
+  ]
+}
+```
 
 ## License
 
