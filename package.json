@@ -1,9 +1,10 @@
 {
-  "version": "1.10.7",
-  "name": "babel-plugin-styled-components",
+  "version": "0.0.0",
+  "name": "@rajzik/babel-plugin-styled-components",
   "description": "Improve the debugging experience and add server-side rendering support to styled-components",
-  "repository": "styled-components/babel-plugin-styled-components",
+  "repository": "https://github.com/rajzik/babel-plugin-styled-components-namespace",
   "contributors": [
+    "Jan Silhan <silhanu@gmail.com>",
     "Vladimir Danchenkov <vladimir.danchenkov@gmail.com>",
     "Max Stoiber <contact@mxstbr.com>",
     "Phil Pluckthun <phil@kitten.sh>",
@@ -13,17 +14,32 @@
   "files": [
     "lib"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "license": "MIT",
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
     "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@babel/preset-env": "^7.4.5",
+    "@beemo/driver-babel": "^1.2.3",
+    "@beemo/driver-jest": "^1.2.1",
+    "@beemo/driver-prettier": "^1.3.0",
+    "@commitlint/cli": "^8.3.5",
+    "@rajzik/config-babel": "^1.9.12",
+    "@rajzik/config-eslint": "^2.3.2",
+    "@rajzik/config-jest": "^1.9.4",
+    "@rajzik/config-prettier": "^1.6.8",
+    "@rajzik/conventional-changelog-lint-config-beemo": "^1.0.1",
+    "@rajzik/lumos": "^2.1.13",
     "babel-core": "7.0.0-bridge.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "babel-test": "^0.2.1",
+    "husky": "^4.2.5",
     "jest": "^25.1.0",
     "jest-file-snapshot": "^0.3.6",
+    "lint-staged": "^10.1.3",
     "prettier": "^1.18.2",
     "rimraf": "^3.0.0",
     "styled-components": "^5.0.0"
@@ -31,6 +47,8 @@
   "dependencies": {
     "@babel/helper-annotate-as-pure": "^7.0.0",
     "@babel/helper-module-imports": "^7.0.0",
+    "@babel/plugin-proposal-export-namespace-from": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.9.0",
     "babel-plugin-syntax-jsx": "^6.18.0",
     "lodash": "^4.17.11"
   },
@@ -41,12 +59,17 @@
     "styled-components": ">= 2"
   },
   "scripts": {
+    "prepare": "lumos create-config --silent",
     "clean": "rimraf lib",
+    "lint": "lumos eslint",
+    "prettier": "lumos prettier",
     "style": "prettier --write src/**/*.js",
-    "build": "babel src -d lib",
-    "test": "jest",
-    "test:watch": "npm run test -- --watch",
-    "prepublish": "npm run clean && npm run build"
+    "old-build": "babel src -d lib",
+    "build": "lumos babel",
+    "jest": "cross-env NODE_ENV=test TZ=UTC lumos jest",
+    "jest:coverage": "yarn run jest -- --coverage",
+    "test": "yarn run jest",
+    "test:watch": "yarn run test -- --watch"
   },
   "keywords": [
     "styled-components",
@@ -54,15 +77,20 @@
     "babel-plugin",
     "server-side rendering",
     "ssr",
-    "displayName"
+    "displayName",
+    "namespace"
   ],
-  "jest": {
-    "testEnvironment": "node",
-    "snapshotSerializers": [
-      "<rootDir>/test/whitespaceTrimmingSerializer.js"
+  "lumos": {
+    "drivers": [
+      "babel",
+      "eslint",
+      "jest",
+      "prettier"
     ],
-    "watchPathIgnorePatterns": [
-      "fixtures\\/[^/]+\\/(output|error)\\.js"
-    ]
+    "settings": {
+      "library": true,
+      "next": true,
+      "node": true
+    }
   }
 }

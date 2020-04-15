@@ -1,41 +1,44 @@
 .DS_Store
-*.DS_Store
 
 # Logs
 logs/
 *.log
 
 # Cache
-.axe/
-.bundle/
-.happo/
+.eslintcache/
 .idea/
 .npm/
-.vagrant/
 .vscode/
-.eslintcache
 .yarnclean
 
 # Directories
 coverage/
 dist/
-esm/
-lib/
 public/
 node_modules/
 tmp/
+docs/
+src/
+test/
+tests/
 
 # Custom
 *.min.js
 *.map
 
-# Configs (provided by Lumos)
+# Configs
 .babelrc
+.dockerignore
 .eslintignore
 .eslintrc.js
 .flowconfig
+.gitattributes
+.gitignore
+.npmrc
 .prettierignore
+.yarnc
 babel.config.js
+dangerfile.ts
 jest.config.js
 prettier.config.js
 tsconfig.json
@@ -43,7 +46,3 @@ tsconfig.eslint.json
 tsconfig.options.json
 webpack.config.js
 *.tsbuildinfo
-build
-.cache
-\.npmrc
-TEST-RESULTS.xml
