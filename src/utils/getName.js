@@ -7,35 +7,36 @@
  */
 
 export default t => path => {
-  let namedNode
+  let namedNode;
 
-  path.find(path => {
+  path.find(nestedPath => {
     // const X = styled
-    if (path.isAssignmentExpression()) {
-      namedNode = path.node.left
+    if (nestedPath.isAssignmentExpression()) {
+      namedNode = nestedPath.node.left;
       // const X = { Y: styled }
-    } else if (path.isObjectProperty()) {
-      namedNode = path.node.key
+    } else if (nestedPath.isObjectProperty()) {
+      namedNode = nestedPath.node.key;
       // class Y { (static) X = styled }
-    } else if (path.isClassProperty()) {
-      namedNode = path.node.key
+    } else if (nestedPath.isClassProperty()) {
+      namedNode = nestedPath.node.key;
       // let X; X = styled
-    } else if (path.isVariableDeclarator()) {
-      namedNode = path.node.id
-    } else if (path.isStatement()) {
+    } else if (nestedPath.isVariableDeclarator()) {
+      namedNode = nestedPath.node.id;
+    } else if (nestedPath.isStatement()) {
       // we've hit a statement, we should stop crawling up
-      return true
+      return true;
     }
 
     // we've got an displayName (if we need it) no need to continue
-    if (namedNode) return true
-  })
+    if (namedNode) return true;
+    return false;
+  });
 
   // foo.bar -> bar
   if (t.isMemberExpression(namedNode)) {
-    namedNode = namedNode.property
+    namedNode = namedNode.property;
   }
 
   // identifiers are the only thing we can reliably get a name from
-  return t.isIdentifier(namedNode) ? namedNode.name : undefined
-}
+  return t.isIdentifier(namedNode) ? namedNode.name : undefined;
+};
