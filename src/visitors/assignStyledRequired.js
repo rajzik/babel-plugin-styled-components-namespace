@@ -1,4 +1,4 @@
-import { isValidTopLevelImport } from '../utils/detectors'
+import { isValidTopLevelImport } from '../utils/detectors';
 
 export default t => (path, state) => {
   if (
@@ -11,6 +11,6 @@ export default t => (path, state) => {
     isValidTopLevelImport(path.node.init.arguments[0].value)
   ) {
     // eslint-disable-next-line no-param-reassign
-    state.styledRequired = path.node.id.name
+    state.styledRequired = path.node.id.name;
   }
-}
+};

@@ -1,7 +1,7 @@
-import annotateAsPure from '@babel/helper-annotate-as-pure'
+import annotateAsPure from '@babel/helper-annotate-as-pure';
 
-import { usePureAnnotation } from '../utils/options'
-import { isStyled, isPureHelper } from '../utils/detectors'
+import { usePureAnnotation } from '../utils/options';
+import { isStyled, isPureHelper } from '../utils/detectors';
 
 export default t => (path, state) => {
   if (usePureAnnotation(state)) {
@@ -14,8 +14,8 @@ export default t => (path, state) => {
         path.parent.type === 'VariableDeclarator' ||
         path.parent.type === 'TaggedTemplateExpression'
       ) {
-        annotateAsPure(path)
+        annotateAsPure(path);
       }
     }
   }
-}
+};
