@@ -1,5 +1,5 @@
 module.exports = {
-  ignorePatterns: ['fixtures'],
+  ignorePatterns: ['fixtures', 'fixtures-build'],
   rules: {
     'react-hooks/rules-of-hooks': 'off',
     'no-plusplus': 'off',

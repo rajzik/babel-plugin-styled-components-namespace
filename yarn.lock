@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@babel/cli@^7.4.4", "@babel/cli@^7.8.4":
+"@babel/cli@^7.8.4":
   version "7.8.4"
   resolved "https://registry.yarnpkg.com/@babel/cli/-/cli-7.8.4.tgz#505fb053721a98777b2b175323ea4f090b7d3c1c"
   integrity sha512-XXLgAm6LBbaNxaGhMAznXXaxtCWfuv6PIDJ9Alsy9JYTOh+j2jJz+L/162kkfU1j/pTSxK1xGmlwI4pdIMkoag==
@@ -34,7 +34,7 @@
     invariant "^2.2.4"
     semver "^5.5.0"
 
-"@babel/core@^7.1.0", "@babel/core@^7.4.5", "@babel/core@^7.7.5", "@babel/core@^7.9.0":
+"@babel/core@^7.1.0", "@babel/core@^7.7.5", "@babel/core@^7.9.0":
   version "7.9.0"
   resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.9.0.tgz#ac977b538b77e132ff706f3b8a4dbad09c03c56e"
   integrity sha512-kWc7L0fw1xwvI0zi8OKVBuxRVefwGOrKSQMvrQ3dW+bIIavBY3/NpXmpjMy7bQnLgwgzWQZ8TlM57YHpHNHz4w==
@@ -299,7 +299,7 @@
     "@babel/helper-remap-async-to-generator" "^7.8.3"
     "@babel/plugin-syntax-async-generators" "^7.8.0"
 
-"@babel/plugin-proposal-class-properties@^7.4.4", "@babel/plugin-proposal-class-properties@^7.8.3":
+"@babel/plugin-proposal-class-properties@^7.8.3":
   version "7.8.3"
   resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-class-properties/-/plugin-proposal-class-properties-7.8.3.tgz#5e06654af5cd04b608915aada9b2a6788004464e"
   integrity sha512-EqFhbo7IosdgPgZggHaNObkmO1kNUe3slaKu54d5OWvy+p9QIKOzK1GAEpAIsZtWVtPXUHSMcT4smvDrCfY4AA==
@@ -1590,10 +1590,10 @@
     "@semantic-release/release-notes-generator" "^9.0.1"
     conventional-changelog-beemo "^1.6.0"
 
-"@rajzik/config-babel@^1.9.12":
-  version "1.9.12"
-  resolved "https://registry.yarnpkg.com/@rajzik/config-babel/-/config-babel-1.9.12.tgz#87322bc0f82758ff795bac97b34950450f50f054"
-  integrity sha512-j2GWk/T6dt/+VU969wJC1qncdhriHV1zkTEGTpkS8IifJmm9duJ5RFfVSZfqYWfXQfc7K27GmgIN8ZimcI+M1A==
+"@rajzik/config-babel@^1.10.0":
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/@rajzik/config-babel/-/config-babel-1.10.0.tgz#ca40ae19d92b29a2f84e1759db337e7e87ff3bdc"
+  integrity sha512-wntZD3mVXVDHwEEcJkT1bRh+Y53nef1nJVAndFdf3VXosjV1ueNixoHumcIKPBG+5zjFs+CtIzTd47r34t3y5w==
   dependencies:
     "@babel/cli" "^7.8.4"
     "@babel/core" "^7.9.0"
@@ -1607,20 +1607,20 @@
     "@babel/preset-typescript" "^7.9.0"
     "@beemo/core" "^1.1.6"
     "@beemo/driver-babel" "^1.2.3"
-    "@rajzik/lumos-common" "^1.10.0"
+    "@rajzik/lumos-common" "^1.11.0"
     babel-plugin-graphql-tag "^2.5.0"
     babel-plugin-transform-dev "^2.0.1"
     babel-plugin-transform-react-remove-prop-types "^0.4.24"
     babel-plugin-typescript-to-proptypes "^1.3.2"
 
-"@rajzik/config-eslint@^2.3.2":
-  version "2.3.2"
-  resolved "https://registry.yarnpkg.com/@rajzik/config-eslint/-/config-eslint-2.3.2.tgz#7c3a473e64065f10342c17e431fc8653a0d16f14"
-  integrity sha512-cAoKreb1cSV63+B2wrGO5zp9yBKKpm4nz70mpK/kj8IEspGUDtbT1S9fevgKdmC8DaDBItMrlmZz1h+T+xfS/Q==
+"@rajzik/config-eslint@^2.3.3":
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/@rajzik/config-eslint/-/config-eslint-2.3.3.tgz#3cd159309b981116e6c636350e77f355ea0bcfbf"
+  integrity sha512-SzR1IwCdFIXClXmxYBGr1Nd3caeJdUunU+UqW57OULy8Qgx4GStLkiSbNdUXQ6mMGy18y4RrZVsViEhWQ1Uobg==
   dependencies:
     "@beemo/core" "^1.1.6"
     "@beemo/driver-eslint" "^1.2.2"
-    "@rajzik/lumos-common" "^1.10.0"
+    "@rajzik/lumos-common" "^1.11.0"
     "@typescript-eslint/eslint-plugin" "^2.28.0"
     "@typescript-eslint/parser" "^2.28.0"
     babel-eslint "^10.1.0"
@@ -1637,16 +1637,16 @@
     eslint-plugin-testing-library "^3.0.3"
     eslint-plugin-unicorn "^18.0.1"
 
-"@rajzik/config-jest@^1.9.4":
-  version "1.9.4"
-  resolved "https://registry.yarnpkg.com/@rajzik/config-jest/-/config-jest-1.9.4.tgz#fda776e0cfff7a92135df91e3838fd0911dacfc4"
-  integrity sha512-KhRjEwvoUj+0Mez6sD4pBVKh8DWU8SGwvTpcGiNJdTxdJAAf993hfWjX9jmTuWXWHeqtSC9b4sAiRdguZmOR6Q==
+"@rajzik/config-jest@^1.9.5":
+  version "1.9.5"
+  resolved "https://registry.yarnpkg.com/@rajzik/config-jest/-/config-jest-1.9.5.tgz#c6dbe9a1835a3800824c1c8d6423d18d7e834f86"
+  integrity sha512-Ajs+Iz3dlXmx3joZdQ8zDajcoIibyTrko6xYcVLNUT7HoxVgs3Miz6FE1TU+VIQ2EQ4X6QVE09+s7Bhlq9r+Dw==
   dependencies:
     "@babel/core" "^7.9.0"
     "@beemo/core" "^1.1.6"
     "@beemo/driver-babel" "^1.2.3"
     "@beemo/driver-jest" "^1.2.1"
-    "@rajzik/lumos-common" "^1.10.0"
+    "@rajzik/lumos-common" "^1.11.0"
     "@types/jest" "^25.2.1"
     airbnb-js-shims "^2.2.1"
     cross-env "^7.0.2"
@@ -1654,14 +1654,14 @@
     jest "^25.3.0"
     jest-junit "^10.0.0"
 
-"@rajzik/config-prettier@^1.6.8":
-  version "1.6.8"
-  resolved "https://registry.yarnpkg.com/@rajzik/config-prettier/-/config-prettier-1.6.8.tgz#f7e4e5c20e7c83f870c0d6a8c5571ce3aba83540"
-  integrity sha512-6R4bHNTuZJCjdxTuomJErT/Q7bhuHbBKHa5sBgrFcLGy2fPuFPPEoU4M3t1bz/LxCIBLCEUAahauAGSuI03K3w==
+"@rajzik/config-prettier@^1.6.9":
+  version "1.6.9"
+  resolved "https://registry.yarnpkg.com/@rajzik/config-prettier/-/config-prettier-1.6.9.tgz#099b3f0053325075eceb5cb7bd3530b6ae0e96c2"
+  integrity sha512-Y0tAbU1yDrMY4PfPsGpOMvuZ3Jx4DUrAQIWEW0Jp79i3XyFlnX3/TBt7uHXYG/PU5Jpjw6w+TdOd0CrsC5O2NA==
   dependencies:
     "@beemo/core" "^1.1.6"
     "@beemo/driver-prettier" "^1.3.0"
-    "@rajzik/lumos-common" "^1.10.0"
+    "@rajzik/lumos-common" "^1.11.0"
     prettier "^2.0.4"
 
 "@rajzik/conventional-changelog-beemo@^2.0.1":
@@ -1674,25 +1674,25 @@
   resolved "https://registry.yarnpkg.com/@rajzik/conventional-changelog-lint-config-beemo/-/conventional-changelog-lint-config-beemo-1.0.1.tgz#0ace1c7d0377df0ebd150a99ae71418e25bdde66"
   integrity sha512-IMsLXO7VcTSdJM8rGT41HubNsoiO4iE7ZtzyJ0ezSqGSkkz94uhztNnYHiJFzeAJ8MCMOyDAHZiEHBiM68aY6w==
 
-"@rajzik/lumos-common@^1.10.0":
-  version "1.10.0"
-  resolved "https://registry.yarnpkg.com/@rajzik/lumos-common/-/lumos-common-1.10.0.tgz#f77f354b0aadbdcca9d55bfa36474d8f507d6c32"
-  integrity sha512-vKe0xU5YWYaD9zskUkg6kwdvWwbgW3cEOMrXs7PmZATrcHZPnNr8bUnpGUlP46Ogi7p9TjSd3KbcVAVwrfh+ig==
+"@rajzik/lumos-common@^1.11.0":
+  version "1.11.0"
+  resolved "https://registry.yarnpkg.com/@rajzik/lumos-common/-/lumos-common-1.11.0.tgz#28c9427ec5e8c02a51f3f46bcd4d25c8eac7a2c1"
+  integrity sha512-3p3p0BjXQURZN4Ojq8chEAB1vXRAuJ5Hwcyoy9rLvdYwXY9SSmd9q2RHQvnC26XhohSxqEWau0gaIivrLF21Ow==
   dependencies:
     "@beemo/core" "^1.1.6"
     "@boost/common" "^1.8.3"
     execa "^4.0.0"
     fast-glob "^3.2.2"
 
-"@rajzik/lumos@^2.1.13":
-  version "2.1.13"
-  resolved "https://registry.yarnpkg.com/@rajzik/lumos/-/lumos-2.1.13.tgz#3384f90daf1e341a19b2b4aec46e6dde1e9d9570"
-  integrity sha512-khqAnqMVGFYl3LPEk2TZqVLJ2RfBzKd/ANffqJ5/vk+dJ6KHE0dUTYvmQJAeMERAX/EkDo9KAM92XErBvyPaCQ==
+"@rajzik/lumos@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@rajzik/lumos/-/lumos-2.2.0.tgz#9eba59054d831a2690f0c5d7b7c4a84eaf15ef5f"
+  integrity sha512-EX5N5zKo8mvQoEI/IH+wX//gNVlEMk+8cxZjhw0o4xdy4UYcQ7qeU6CrXpkfJHFSfxtt7epEe/ZD8cOcjIavuQ==
   dependencies:
     "@beemo/cli" "^1.0.10"
     "@beemo/core" "^1.1.6"
     "@rajzik/conventional-changelog-beemo" "^2.0.1"
-    "@rajzik/lumos-common" "^1.10.0"
+    "@rajzik/lumos-common" "^1.11.0"
     chalk "^4.0.0"
     check-node-version "^4.0.3"
     cross-env "^7.0.2"
@@ -2607,7 +2607,7 @@ babel-template@^6.26.0:
     babylon "^6.18.0"
     lodash "^4.17.4"
 
-babel-test@^0.2.1:
+babel-test@^0.2.3:
   version "0.2.3"
   resolved "https://registry.yarnpkg.com/babel-test/-/babel-test-0.2.3.tgz#2acfe26fbbf16dfdd88774da665b9e549d64e21b"
   integrity sha512-1eh7ZU1Hi7IQKHveu9ATiDZZJuEt4qnszTzF4TcALDT4CyFCAwfPzGGvEUBtFJI1hrAqiYNOx6RHwvpjcGV6jQ==
@@ -5984,7 +5984,7 @@ jest-environment-node@^25.3.0:
     jest-util "^25.3.0"
     semver "^6.3.0"
 
-jest-file-snapshot@^0.3.6:
+jest-file-snapshot@^0.3.8:
   version "0.3.8"
   resolved "https://registry.yarnpkg.com/jest-file-snapshot/-/jest-file-snapshot-0.3.8.tgz#728ee12087acde05fea9b7c47817d234329a2026"
   integrity sha512-rcR2i3SdlbJQNOpakj1fCMjsBAl2F5NQJ2/lHwbvGngwbxW+c/crivMFuKmssxo2o1uVTeWlSGbcSu7uDQY1+w==
@@ -6261,7 +6261,7 @@ jest-worker@^25.2.6:
     merge-stream "^2.0.0"
     supports-color "^7.0.0"
 
-jest@^25.1.0, jest@^25.3.0:
+jest@^25.3.0:
   version "25.3.0"
   resolved "https://registry.yarnpkg.com/jest/-/jest-25.3.0.tgz#7a5e59741d94b8662664c77a9f346246d6bf228b"
   integrity sha512-iKd5ShQSHzFT5IL/6h5RZJhApgqXSoPxhp5HEi94v6OAw9QkF8T7X+liEU2eEHJ1eMFYTHmeWLrpBWulsDpaUg==
@@ -8257,11 +8257,6 @@ prettier-linter-helpers@^1.0.0:
   dependencies:
     fast-diff "^1.1.2"
 
-prettier@^1.18.2:
-  version "1.19.1"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.19.1.tgz#f7d7f5ff8a9cd872a7be4ca142095956a60797cb"
-  integrity sha512-s7PoyDv/II1ObgQunCbB9PdLmUcBZcnWOcxDh7O0N/UwDEsHyqkW+Qh28jW+mVuCdx7gLB0BotYI1Y6uI9iyew==
-
 prettier@^2.0.4:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.0.4.tgz#2d1bae173e355996ee355ec9830a7a1ee05457ef"
@@ -9024,10 +9019,10 @@ saxes@^3.1.9:
   dependencies:
     xmlchars "^2.1.1"
 
-semantic-release@^17.0.4:
-  version "17.0.4"
-  resolved "https://registry.yarnpkg.com/semantic-release/-/semantic-release-17.0.4.tgz#4ca739b2bf80f8ce5e49b05f12c15f49ca233d6d"
-  integrity sha512-5y9QRSrZtdvACmlpX5DvEVsvFuKRDUVn7JVJFxPVLGrGofDf1d0M/+hA1wFmCjiJZ+VCY8bYaSqVqF14KCF9rw==
+semantic-release@^17.0.6:
+  version "17.0.6"
+  resolved "https://registry.yarnpkg.com/semantic-release/-/semantic-release-17.0.6.tgz#18e6a4f99b343f5d4d10b7fb8d9900a03040ede3"
+  integrity sha512-4djSoKUiq8ShAiKEzDKkcrzFyDREFJRMsY/efr/b48dcin2g+s4TsZUTniTg3Zvk+TM9G5rNBKyXfFgVO6wJNA==
   dependencies:
     "@semantic-release/commit-analyzer" "^8.0.0"
     "@semantic-release/error" "^2.2.0"
@@ -9053,7 +9048,7 @@ semantic-release@^17.0.4:
     p-reduce "^2.0.0"
     read-pkg-up "^7.0.0"
     resolve-from "^5.0.0"
-    semver "^7.1.1"
+    semver "^7.3.2"
     semver-diff "^3.1.1"
     signale "^1.2.1"
     yargs "^15.0.1"
@@ -9097,7 +9092,7 @@ semver@7.0.0:
   resolved "https://registry.yarnpkg.com/semver/-/semver-7.0.0.tgz#5f3ca35761e47e05b206c6daff2cf814f0316b8e"
   integrity sha512-+GB6zVA9LWh6zovYQLALHwv5rb2PHGlJi3lfiqIHxR0uuwCgefcOJc59v9fv1w8GbStwxuuqqAjI9NMAOOgq1A==
 
-semver@^7.1.1, semver@^7.1.2, semver@^7.1.3:
+semver@^7.1.2, semver@^7.1.3, semver@^7.3.2:
   version "7.3.2"
   resolved "https://registry.yarnpkg.com/semver/-/semver-7.3.2.tgz#604962b052b81ed0786aae84389ffba70ffd3938"
   integrity sha512-OrOb32TeeambH6UrhtShmF7CRDqhL6/5XpPNp2DuRH6+9QLw/orhp72j87v8Qa1ScDkvrrBNpZcDejAirJmfXQ==
@@ -9709,7 +9704,7 @@ strip-outer@^1.0.1:
   dependencies:
     escape-string-regexp "^1.0.2"
 
-styled-components@^5.0.0:
+styled-components@^5.1.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-5.1.0.tgz#2e3985b54f461027e1c91af3229e1c2530872a4e"
   integrity sha512-0Qs2wEkFBXHFlysz6CV831VG6HedcrFUwChjnWylNivsx14MtmqQsohi21rMHZxzuTba063dEyoe/SR6VGJI7Q==
