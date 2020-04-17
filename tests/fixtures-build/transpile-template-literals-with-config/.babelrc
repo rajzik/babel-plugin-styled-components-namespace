@@ -1,0 +1,16 @@
+{
+  "presets": [
+    "@babel/preset-env"
+  ],
+  "plugins": [
+    [
+      "../../../lib",
+      {
+        "ssr": false,
+        "displayName": true,
+        "transpileTemplateLiterals": true,
+        "minify": false
+      }
+    ]
+  ]
+}

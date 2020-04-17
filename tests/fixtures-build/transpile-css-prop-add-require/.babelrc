@@ -1,0 +1,22 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "modules": "commonjs"
+      }
+    ]
+  ],
+  "plugins": [
+    [
+      "../../../lib",
+      {
+        "ssr": false,
+        "displayName": false,
+        "transpileTemplateLiterals": false,
+        "minify": false,
+        "cssProp": true
+      }
+    ]
+  ]
+}

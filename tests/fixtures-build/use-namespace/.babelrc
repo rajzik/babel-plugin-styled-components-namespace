@@ -1,0 +1,10 @@
+{
+  "plugins": [
+    [
+      "../../../lib",
+      {
+        "namespace": "test-namespace"
+      }
+    ]
+  ]
+}
