@@ -15,6 +15,11 @@ const styles = {
     displayName: "One"
   })``
 };
+const doubleStyles = {
+  One: Discarded = styled.div.withConfig({
+    displayName: "Discarded"
+  })``
+};
 let Component;
 Component = styled.div.withConfig({
   displayName: "Component"
@@ -28,3 +33,12 @@ class ClassComponent {}
 ClassComponent.Child = styled.div.withConfig({
   displayName: "Child"
 })``;
+
+class DoubleClassComponent {}
+
+DoubleClassComponent.DoubleChild = Discarded = styled.div.withConfig({
+  displayName: "Discarded"
+})``;
+const DoubleAssignment = Discarded = styled.div.withConfig({
+  displayName: "Discarded"
+})`width:50%;`;
