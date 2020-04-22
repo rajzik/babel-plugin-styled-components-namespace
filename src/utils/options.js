@@ -8,7 +8,15 @@ export const useFileName = state => getOption(state, 'fileName');
 export const useMinify = state => getOption(state, 'minify');
 export const useTranspileTemplateLiterals = state => getOption(state, 'transpileTemplateLiterals');
 
-export const useNamespace = state => getOption(state, 'namespace', '');
+export const preferOuterAssignment = state => getOption(state, 'preferOuterAssignment', false);
+
+export const useNamespace = state => {
+  const namespace = getOption(state, 'namespace', '');
+  if (namespace) {
+    return `${namespace}__`;
+  }
+  return '';
+};
 
 export const usePureAnnotation = state => getOption(state, 'pure', false);
 

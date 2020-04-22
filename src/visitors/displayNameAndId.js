@@ -2,7 +2,6 @@ import pathModule from 'path';
 import fs from 'fs';
 import { useFileName, useDisplayName, useSSR, useNamespace } from '../utils/options';
 import getName from '../utils/getName';
-import getNamespace from '../utils/getNamespace';
 import hash from '../utils/hash';
 import { isStyled } from '../utils/detectors';
 
@@ -48,8 +47,9 @@ const getBlockName = file => {
 };
 
 const getDisplayName = t => (path, state) => {
-  const { file } = state;
-  const componentName = getName(t)(path);
+  const file = useFileName(state) ? state.file : false;
+  const componentName = getName(t)(path, state);
+
   if (file) {
     const blockName = getBlockName(file);
     if (blockName === componentName) {
@@ -114,7 +114,7 @@ const getNextId = state => {
 
 const getComponentId = state => {
   // Prefix the identifier with a character because CSS classes cannot start with a number
-  return `${getNamespace(useNamespace(state))}sc-${getFileHash(state)}-${getNextId(state)}`;
+  return `${useNamespace(state)}sc-${getFileHash(state)}-${getNextId(state)}`;
 };
 
 export default t => (path, state) => {
@@ -133,8 +133,7 @@ export default t => (path, state) => {
           path.node.callee.callee.property.name &&
           path.node.callee.callee.property.name !== 'withConfig')
   ) {
-    const displayName =
-      useDisplayName(state) && getDisplayName(t)(path, useFileName(state) && state);
+    const displayName = useDisplayName(state) && getDisplayName(t)(path, state);
 
     addConfig(t)(
       path,
